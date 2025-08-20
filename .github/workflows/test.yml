@@ -1,9 +1,9 @@
 name: Demo Workflow   # Workflow name
 
 on: 
-  push: # Trigger (runs on push)
+  pull_request: # Trigger (runs on push)
     branches:
-     - dev1
+     - main
     paths:
      - "application.txt"
 
