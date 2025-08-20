@@ -1,6 +1,9 @@
 name: Demo Workflow   # Workflow name
 
-on: push              # Trigger (runs on push)
+on: 
+  push: # Trigger (runs on push)
+    paths:
+     - "application.txt"
 
 jobs:
   build:              # Job name
