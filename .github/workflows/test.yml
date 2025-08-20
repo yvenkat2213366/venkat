@@ -1,1 +1,11 @@
+name: Demo Workflow   # Workflow name
 
+on: push              # Trigger (runs on push)
+
+jobs:
+  build:              # Job name
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3   # Step 1: Checkout code
+      - run: echo "Hello, GitHub Actions!"  # Step 2: Run command
