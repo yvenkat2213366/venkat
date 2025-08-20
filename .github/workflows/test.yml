@@ -2,6 +2,8 @@ name: Demo Workflow   # Workflow name
 
 on: 
   push: # Trigger (runs on push)
+    branches:
+     - dev1
     paths:
      - "application.txt"
 
