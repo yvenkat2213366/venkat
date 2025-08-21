@@ -15,5 +15,6 @@ jobs:
       - run: cd venkat
       - run: touch githubfile.txt
       - run: mkdir ram
+      - run: cd ram
       
  
