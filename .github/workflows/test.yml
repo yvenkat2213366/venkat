@@ -12,4 +12,7 @@ jobs:
       - run: echo "Hello, GitHub Actions!"  # Step 2: Run command
       - run: mkdir venkat
       - run: pwd
+      - run: cd venkat
+      - run: touch githubfile.txt
+      
  
