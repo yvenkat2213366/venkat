@@ -9,4 +9,9 @@ jobs:
     steps:
       - name: show context
         run: echo " ${{ github.actor}} ${{github.ref}}"
+      - name: if condition
+        if: github.ref == 'refs/heads/dev'
+        run: echo "main branch"
+
+
  
