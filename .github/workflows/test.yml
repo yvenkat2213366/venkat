@@ -1,14 +1,20 @@
-name: Inputs and Outputs Lab
+name: Matrix Example 
 on:
   push:
-   tags:
-    - "v*"
+  
 jobs:
-  greet:
+  matrix-test:
     runs-on: ubuntu-latest
+    strategy:
+     matrix:
+      python-version: [3.8,3.9]
     steps:
     - name: checkout code
       uses: actions/checkout@v3
+    - name: setup python
+      uses: actions/setup-python@v5
+      with:
+       python-version: ${{matrix.python-version}} 
 
     - name: run my script
-      run: python pythontest.py
+      run: python hellomessage.py
