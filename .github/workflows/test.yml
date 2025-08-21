@@ -6,7 +6,6 @@ on: push
 jobs:
   build:              # Job name
     runs-on: self-hosted
-
     steps:
       - name: show context
       - run: echo " ${{ github.actor}} ${{github.ref}}"
