@@ -17,4 +17,4 @@ jobs:
        python-version: ${{matrix.python-version}} 
 
     - name: run my script
-      run: python hellomessage.py
+      run: python pythontest.py
