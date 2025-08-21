@@ -1,7 +1,7 @@
-name: Greeting on variable day
+name: idap
 
 on:
-  workflow_dispatch:
+  push:
    inputs:
     username:
      description: "eneter your name"
