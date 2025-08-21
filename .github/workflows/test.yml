@@ -1,25 +1,22 @@
-name: Matrix Example
-
+name: ENV Example 
 on:
   push:
-
+  
 jobs:
-  matrix-test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        python-version: [3.8, 3.9]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Run my script
-        run: python pythontest.py
+  deploy_staging:
+   runs-on: ubuntu-latest
+   environment: staging
+   steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    - name: print the staging Enviroment message
+      run: echo " deploying to the staging with API key = ${{secrets.API_KEY}}"
+    
+  deploy_production:
+   runs-on: ubuntu-latest
+   environment: production
+   steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    - name: print the Production Enviroment message
+      run: echo " deploying to the Production with API key = ${{secrets.API_KEY}}"
