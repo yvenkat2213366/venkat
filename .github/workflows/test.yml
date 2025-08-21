@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3   # Step 1: Checkout code
       - run: echo "Hello, GitHub Actions!"  # Step 2: Run command
-      - run: mkdir venkat | touch test.txt | ls -ltr
+      - run: mkdir venkat | cd venkat | touch test.txt | pwd | ls -ltr
