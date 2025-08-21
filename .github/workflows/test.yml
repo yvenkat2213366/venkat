@@ -16,5 +16,9 @@ jobs:
       - run: touch githubfile.txt
       - run: mkdir ram
       - run: cd ram
+      - run: |
+            echo "creating file"
+            touch ram.tst
+            touch sam.tst
       
  
