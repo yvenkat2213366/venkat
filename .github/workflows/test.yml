@@ -8,17 +8,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v3   # Step 1: Checkout code
-      - run: echo "Hello, GitHub Actions!"  # Step 2: Run command
-      - run: mkdir venkat
-      - run: pwd
-      - run: cd venkat
-      - run: touch githubfile.txt
-      - run: mkdir ram
-      - run: cd ram
-      - run: |
-            echo "creating file"
-            touch ram.tst
-            touch sam.tst
-      
+      - name: show context
+      - run: echo " ${{ github.actor}} ${{github.ref}}"
  
