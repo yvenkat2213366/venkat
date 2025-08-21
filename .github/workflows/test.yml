@@ -1,17 +1,23 @@
-name: Demo Workflow   # Workflow name
+name: Greeting on variable day
 
-on: push
- 
+on:
+  workflow_dispatch
+
+
+  
 
 jobs:
-  build:              # Job name
-    runs-on: self-hosted
+  greeting_job:
+    runs-on: ubuntu-latest
+  
+    
     steps:
-      - name: show context
-        run: echo " ${{ github.actor}} ${{github.ref}}"
-      - name: if condition
-        if: github.ref == 'refs/heads/dev'
-        run: echo "main branch"
-
-
+      - name: "Step 1"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: sandeep
+          DAY_OF_WEEK: sunday
+          Greeting: Hello
+      - name: "Step 2"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
  
