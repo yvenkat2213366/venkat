@@ -1,22 +1,26 @@
-name: ENV Example 
+name: Execution flow
 on:
   push:
   
 jobs:
-  deploy_staging:
+  build:
    runs-on: ubuntu-latest
-   environment: staging
    steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: print the staging Enviroment message
-      run: echo " deploying to the staging with API key = ${{secrets.API_KEY}}"
-    
-  deploy_production:
+   - name: build job
+     run: echo "building the application"
+   
+     
+  test:
    runs-on: ubuntu-latest
-   environment: production
+   needs: build
    steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-    - name: print the Production Enviroment message
-      run: echo " deploying to the Production with API key = ${{secrets.API_KEY}}"
+   - name: test job
+     run: echo "testing  the application"
+     
+  deploy:
+   runs-on: ubuntu-latest
+   needs: test
+   if: ${{sucess()}} 
+   steps:
+   - name: deploy job
+     run: echo "deploy the application"
