@@ -1,26 +1,14 @@
-name: Execution flow
-on:
-  push:
-  
+name: Catch API Data
+
+on: [workflow_dispatch]
+
 jobs:
-  build:
-   runs-on: ubuntu-latest
-   steps:
-   - name: build job
-     run: echo "building the application"
-   
-     
-  test:
-   runs-on: ubuntu-latest
-   needs: build
-   steps:
-   - name: test job
-     run: echo "testing  the application"
-     
-  deploy:
-   runs-on: ubuntu-latest
-   needs: test
-   if: ${{success()}} 
-   steps:
-   - name: deploy job
-     run: echo "deploy the application"
+  get-api-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with curl
+        id: callapi
+        run: |
+          response=$(curl -s https://api.github.com/repos/actions/runner/releases/latest)
+          echo "Response: $response"
+
